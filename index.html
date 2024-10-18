@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>弾幕シューティングゲーム</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* スクロールバーを非表示 */
+    }
+    #gameContainer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    #scoreContainer {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(34, 34, 34, 0.7); /* 透過させる */
+      color: #fff;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      z-index: 10; /* スコア表示を前面に */
+    }
+    #scoreContainer h2 {
+      margin: 0 0 10px 0;
+    }
+    #scoreContainer p {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+    #lifeGauge {
+      width: 200px;
+      height: 20px;
+      background-color: #555;
+      border: 1px solid #fff;
+      position: relative;
+    }
+    #lifeGaugeInner {
+      height: 100%;
+      background-color: #f00;
+      width: 100%; /* 初期値は100% */
+    }
+    canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+    <div id="scoreContainer">
+      <h2>スコア</h2>
+      <p>Score: <span id="framesSurvived">0</span></p>
+      <p>Graze: <span id="grazeCount">0</span></p>
+      <p>HP: <span id="playerLife">120</span></p>
+      <div id="lifeGauge">
+        <div id="lifeGaugeInner"></div>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScriptファイルの読み込み -->
+  <script src="globals.js"></script>
+  <script src="audio.js"></script> <!-- 追加 -->
+  <script src="background.js"></script> <!-- 背景用のスクリプトを追加 -->
+  <script src="player.js"></script>
+  <script src="enemy.js"></script>
+  <script src="bullets.js"></script>
+  <script src="collision.js"></script>
+  <script src="score.js"></script>
+  <script src="gameOver.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
